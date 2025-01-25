@@ -303,3 +303,27 @@ footer.social-links {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
+
+
+.video-demo-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: transparent;
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 6px;
+    border: 2px solid var(--text-color);
+    transition: all 0.3s ease;
+    margin-left: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9em;
+}
+
+.video-demo-btn:hover {
+    background-color: var(--text-color);
+    color: var(--background-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
