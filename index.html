@@ -1,118 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jacob Kriss - Fullstack Software Engineer</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="icon.ico" type="image/x-icon">
-</head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1e3a5f;
+            --secondary-color: #4a5568;
+            --background-color: #1a202c;
+            --surface-color: #2d3748;
+            --text-color: #e2e8f0;
+            --text-color-secondary: #a0aec0;
+            --card-background: #2d3748;
+            --projects-bg: #283344;
+            --title-color: #81a1c1;
+            --sub-title-color: #88c0d0;
+            --button-hover-color: #3498db;
+        }
 
+        body, html {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .section {
+            padding: 80px 20px;
+        }
+
+        #header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('header.png');
+            background-size: cover;
+            background-position: center;
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 3.5em;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin: 0;
+            color: #ffffff;
+        }
+
+        .subheader {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #f0f0f0;
+            margin-top: 15px;
+            letter-spacing: 1px;
+            max-width: 800px;
+        }
+
+        .section-title {
+            font-family: 'Roboto Slab', serif;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            color: var(--title-color);
+        }
+
+        #projects {
+            background-color: var(--projects-bg);
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project {
+            background-color: var(--card-background);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background-color: var(--surface-color);
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-info h3 {
+            margin-top: 0;
+            color: var(--sub-title-color);
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .project-info p {
+            color: var(--text-color-secondary);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .project-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .btn:hover {
+            background-color: var(--button-hover-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--surface-color);
+            color: var(--sub-title-color);
+            border: 2px solid var(--sub-title-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--sub-title-color);
+            color: var(--background-color);
+        }
+
+        footer.social-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--surface-color);
+            padding: 20px 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+            gap: 30px;
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            font-weight: 600;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+            filter: invert(1);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            color: var(--sub-title-color);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section-title {
+                font-size: 2em;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            footer.social-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
 <body>
     <header id="header" class="section">
         <h1>Jacob Kriss</h1>
-        <h2 class="subheader">Fullstack Software Engineer with a passion for Machine Learning, Sustainability, and
-            Ethics</h2>
+        <h2 class="subheader">Fullstack Software Engineer with a passion for Distributed Systems, Computer Networking, Sustainability, and Ethics</h2>
         <a href="Jacob_Kriss_Resume.pdf" download class="btn">Resume</a>
     </header>
+
     <section id="projects" class="section">
         <h2 class="section-title">Projects</h2>
-        <div class="projects">
-            <!-- New Project: Full Stack Dynamic Image Compression -->
-            <div class="project">
-                <div class="project-image">
-                    <img src="image_compression.png" alt="Full Stack Dynamic Image Compression">
-                </div>
-                <div class="project-info">
-                    <h3>Full Stack Dynamic Image Compression</h3>
-                    <p>This project was inspired by a dynamic programming assignment on seam carving in my algorithms
-                        class. After successfully implementing my own image compression algorithm on my local machine, I
-                        decided to build a full-stack application to integrate it into a practical tool. The backend,
-                        built with Flask, runs my custom algorithm, while the frontend, developed with Vue.js, provides
-                        a user-friendly interface for uploading images and adjusting compression settings. Since I
-                        typically use Node.js for backend development, experimenting with Flask for this project was
-                        both fun and educational.</p>
-                    <a href="https://github.com/jek821/image_compression" class="btn">GitHub</a>
-                    <a href="https://dynamic-image-compression.onrender.com" class="try-project-btn">Try Project</a>
-                </div>
-            </div>
-
-            <!-- Existing Project: Fullstack Machine Learning Integration -->
-            <div class="project">
-                <div class="project-image">
-                    <img src="fullstack.png" alt="Fullstack Machine Learning Integration">
-                </div>
-                <div class="project-info">
-                    <h3>Fullstack Machine Learning Integration</h3>
-                    <p>This project began as an experimental design integrating a handwritten numbers model into a web
-                        application using TensorFlow Keras. It has since evolved to leverage AWS Textract for converting
-                        handwritten and written text into digital text. The application integrates machine learning
-                        models and AWS services into a Vue/Vite frontend and a Node.js Express backend, showcasing how
-                        advanced AI capabilities can be made accessible through web interfaces. This experimental
-                        approach highlights scalable and efficient methods for connecting machine learning with
-                        practical applications.</p>
-                    <a href="https://github.com/jek821/fullstack_model" class="btn">GitHub</a>
-                    <a href="https://fullstack-model.onrender.com" class="try-project-btn">Try Project</a>
-                </div>
-            </div>
-
-            <!-- Existing Project: CommUnity -->
-            <div class="project">
-                <div class="project-image">
-                    <img src="community_photo.png" alt="CommUnity">
-                </div>
-                <div class="project-info">
-                    <h3>CommUnity</h3>
-                    <p>CommUnity is a web application designed to empower urban communities by fostering collective
-                        action and turning local activism into constructive correspondence with government officials.
-                        Originally conceived and developed at a hackathon at Rensselaer Polytechnic Institute (RPI),
-                        CommUnity features a Tailwind CSS frontend, a Firestore database for real-time data management,
-                        and a Flask API integrated with ChatGPT for generating impactful advocacy messages. The backend
-                        is hosted on AWS Lambda, ensuring scalability and reliability. This combination of modern
-                        technologies creates a streamlined platform for community-driven advocacy and meaningful change.
-                    </p>
-                    <a href="https://github.com/jek821/CommUnity" class="btn">GitHub</a>
-                    <a href="https://www.youtube.com/watch?v=Uzjh4iJJjo4" class="video-demo-btn">Watch Demo</a>
-                </div>
-            </div>
-
-            <!-- Existing Project: Aether Kingdoms -->
-            <div class="project">
-                <div class="project-image">
-                    <img src="aether_logo.png" alt="Aether Kingdoms">
-                </div>
-                <div class="project-info">
-                    <h3>Aether Kingdoms</h3>
-                    <p>Aether Kingdoms is a browser-based strategy game designed and developed by a skilled web
-                        developer with a passion for strategy games. While the project is largely his creation, I have
-                        had the opportunity to contribute minimally and, more importantly, to learn from his expertise.
-                        This experience has allowed me to deepen my understanding of database management with SQL,
-                        explore API integration across full-stack applications, and gain insight into the ecosystem of
-                        web-based game development. Aether Kingdoms reflects a commitment to fair competition and
-                        strategic depth, rejecting pay-to-win models and celebrating skill-based gameplay.</p>
-                    <a href="https://aetherkingdoms.com/" class="try-project-btn">Learn More</a>
-                </div>
-            </div>
-
-            <!-- Moved Project: QuickThought -->
-            <div class="project">
-                <div class="project-image">
-                    <img src="quickthought.jpeg" alt="QuickThought">
-                </div>
-                <div class="project-info">
-                    <h3>QuickThought</h3>
-                    <p>Quickthought is a cross-platform application I am developing with my partner, Azizul Hakim
-                        Ananda, using a Vue and Axios frontend with a MySQL and Node.js Express backend. Our goal is to
-                        enhance collaboration, efficiency, and organization for college students worldwide. After
-                        securing third place in Skidmore College's Kenneth A. Freirich Entrepreneurship Competition in
-                        2024, we are using our winnings to further develop the platform and bring our vision to life.
-                    </p>
-                    <a href="https://github.com/iamtheazizul/QuickThought" class="btn">GitHub</a>
-                </div>
-            </div>
+        <div class="projects" id="projects-container">
+            <!-- Projects will be dynamically inserted here -->
         </div>
     </section>
+
     <footer class="social-links">
         <a href="https://www.linkedin.com/in/jacob-kriss-9685b6244" target="_blank">
             <img src="linkedin_icon.png" alt="LinkedIn" class="social-icon">
@@ -122,12 +243,95 @@
             <img src="github_icon.png" alt="GitHub" class="social-icon">
             GitHub
         </a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfrLhMbNPoMGEjmZiIZW2dg-Fc4PIe5LACIE4XrNHVma8XXbw/viewform?usp=sf_link"
-            class="gmail-btn">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfrLhMbNPoMGEjmZiIZW2dg-Fc4PIe5LACIE4XrNHVma8XXbw/viewform?usp=sf_link">
             <img src="gmail_icon.png" alt="Gmail" class="social-icon">
             Gmail
         </a>
     </footer>
-</body>
 
+    <script>
+        // ============================================
+        // PROJECT DATA - EDIT THIS SECTION TO ADD/REMOVE/UPDATE PROJECTS
+        // ============================================
+        const projects = [
+            {
+                title: "Full Stack Dynamic Image Compression",
+                image: "image_compression.png",
+                imagePosition: "50% 35%", // Optional: adjust image positioning
+                description: "This project was inspired by a dynamic programming assignment on seam carving in my algorithms class. After successfully implementing my own image compression algorithm on my local machine, I decided to build a full-stack application to integrate it into a practical tool. The backend, built with Flask, runs my custom algorithm, while the frontend, developed with Vue.js, provides a user-friendly interface for uploading images and adjusting compression settings. Since I typically use Node.js for backend development, experimenting with Flask for this project was both fun and educational.",
+                buttons: [
+                    { text: "GitHub", url: "https://github.com/jek821/image_compression", type: "primary" },
+                    { text: "Try Project", url: "https://dynamic-image-compression.onrender.com", type: "secondary" }
+                ]
+            },
+            {
+                title: "Fullstack Machine Learning Integration",
+                image: "fullstack.png",
+                imagePosition: "50% 35%",
+                description: "This project began as an experimental design integrating a handwritten numbers model into a web application using TensorFlow Keras. It has since evolved to leverage AWS Textract for converting handwritten and written text into digital text. The application integrates machine learning models and AWS services into a Vue/Vite frontend and a Node.js Express backend, showcasing how advanced AI capabilities can be made accessible through web interfaces. This experimental approach highlights scalable and efficient methods for connecting machine learning with practical applications.",
+                buttons: [
+                    { text: "GitHub", url: "https://github.com/jek821/fullstack_model", type: "primary" },
+                    { text: "Try Project", url: "https://fullstack-model.onrender.com", type: "secondary" }
+                ]
+            }
+        ];
+
+        // ============================================
+        // PROJECT RENDERING - NO NEED TO EDIT BELOW
+        // ============================================
+        function renderProjects() {
+            const container = document.getElementById('projects-container');
+            
+            projects.forEach(project => {
+                const projectDiv = document.createElement('div');
+                projectDiv.className = 'project';
+                
+                const imageDiv = document.createElement('div');
+                imageDiv.className = 'project-image';
+                const img = document.createElement('img');
+                img.src = project.image;
+                img.alt = project.title;
+                if (project.imagePosition) {
+                    img.style.objectPosition = project.imagePosition;
+                }
+                imageDiv.appendChild(img);
+                
+                const infoDiv = document.createElement('div');
+                infoDiv.className = 'project-info';
+                
+                const title = document.createElement('h3');
+                title.textContent = project.title;
+                
+                const description = document.createElement('p');
+                description.textContent = project.description;
+                
+                const buttonsDiv = document.createElement('div');
+                buttonsDiv.className = 'project-buttons';
+                
+                project.buttons.forEach(button => {
+                    const link = document.createElement('a');
+                    link.href = button.url;
+                    link.textContent = button.text;
+                    link.className = button.type === 'secondary' ? 'btn btn-secondary' : 'btn';
+                    if (button.url.startsWith('http')) {
+                        link.target = '_blank';
+                    }
+                    buttonsDiv.appendChild(link);
+                });
+                
+                infoDiv.appendChild(title);
+                infoDiv.appendChild(description);
+                infoDiv.appendChild(buttonsDiv);
+                
+                projectDiv.appendChild(imageDiv);
+                projectDiv.appendChild(infoDiv);
+                
+                container.appendChild(projectDiv);
+            });
+        }
+
+        // Render projects when page loads
+        document.addEventListener('DOMContentLoaded', renderProjects);
+    </script>
+</body>
 </html>
