@@ -1,5 +1,24 @@
 const projects = [
     {
+        title: "Life Logger",
+        image: "assets/images/projects/lifelogger.png",
+        imagePosition: "50% 50%",
+        description:
+            "Life Logger is a web app for tracking your daily activities and collecting data over time. You can log what you do, how long it takes, and how patterns shift across days and weeks. The backend exposes an API so you can query your own habits, aggregate statistics, and spot trends—turning vague goals into measurable improvements in time efficiency and productivity.",
+        buttons: [{ text: "Visit Site", url: "https://lifelogger.org", type: "secondary" }]
+    },
+    {
+        title: "Byte Chat",
+        image: "assets/images/projects/bytechat.png",
+        imagePosition: "50% 45%",
+        description:
+            "Byte Chat is a distributed, open-source, end-to-end encrypted chat application written in Go, with a terminal UI built using the Bubble Tea framework. Transport uses a custom protocol on TCP with TLS, so sessions stay encrypted on the wire while the stack stays under your control. The architecture is geared toward security and self-hosting: you can run your own instance instead of trusting a third-party service with your conversations. It is meant as a practical alternative to mainstream chat apps—familiar messaging flows in the terminal, with encryption and deployment flexibility as first-class concerns.",
+        buttons: [
+            { text: "GitHub", url: "https://github.com/jek821/ByteChat", type: "primary" },
+            { text: "Visit Site", url: "", type: "secondary" }
+        ]
+    },
+    {
         title: "Full Stack Dynamic Image Compression",
         image: "assets/images/projects/image_compression.png",
         imagePosition: "50% 35%",
@@ -8,17 +27,6 @@ const projects = [
         buttons: [
             { text: "GitHub", url: "https://github.com/jek821/image_compression", type: "primary" },
             { text: "Try Project", url: "https://dynamic-image-compression.onrender.com", type: "secondary" }
-        ]
-    },
-    {
-        title: "Fullstack Machine Learning Integration",
-        image: "assets/images/projects/fullstack.png",
-        imagePosition: "50% 35%",
-        description:
-            "This project began as an experimental design integrating a handwritten numbers model into a web application using TensorFlow Keras. It has since evolved to leverage AWS Textract for converting handwritten and written text into digital text. The application integrates machine learning models and AWS services into a Vue/Vite frontend and a Node.js Express backend, showcasing how advanced AI capabilities can be made accessible through web interfaces. This experimental approach highlights scalable and efficient methods for connecting machine learning with practical applications.",
-        buttons: [
-            { text: "GitHub", url: "https://github.com/jek821/fullstack_model", type: "primary" },
-            { text: "Try Project", url: "https://fullstack-model.onrender.com", type: "secondary" }
         ]
     }
 ];
@@ -57,11 +65,22 @@ function renderProjects() {
         buttonsDiv.className = "project-buttons";
 
         project.buttons.forEach((button) => {
+            const url = (button.url || "").trim();
+            if (!url) {
+                const placeholder = document.createElement("span");
+                placeholder.textContent = button.text;
+                placeholder.className =
+                    (button.type === "secondary" ? "btn btn-secondary" : "btn") + " btn-disabled";
+                placeholder.setAttribute("aria-disabled", "true");
+                placeholder.title = "Site link coming soon";
+                buttonsDiv.appendChild(placeholder);
+                return;
+            }
             const link = document.createElement("a");
-            link.href = button.url;
+            link.href = url;
             link.textContent = button.text;
             link.className = button.type === "secondary" ? "btn btn-secondary" : "btn";
-            if (button.url.startsWith("http")) {
+            if (url.startsWith("http")) {
                 link.target = "_blank";
                 link.rel = "noreferrer";
             }
