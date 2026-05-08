@@ -13,6 +13,18 @@ const projects = [
         ]
     },
     {
+        title: "Vector Play",
+        image: "assets/images/projects/vector-play.png",
+        imageEdgeToEdge: true,
+        description:
+            "Vector Play is a web game framework built with TypeScript and Svelte around SVG, the DOM, and a small game engine layer. You plug in your own vector assets to assemble scenes and ship dynamic gameplay without fighting a giant runtime. It is aimed at making richer 2D-style games more approachable: scalable vector art keeps memory and draw work light compared to big sprite sheets, and the library stays deliberately minimal with only what you need for interactive SVG games.",
+
+        buttons: [
+            { text: "GitHub", url: "https://github.com/jek821/vector-play", type: "primary" },
+            { text: "Visit Site", url: "", type: "secondary" }
+        ]
+    },
+    {
         title: "Byte Chat",
         image: "assets/images/projects/bytechat.png",
         imagePosition: "50% 45%",
@@ -26,6 +38,17 @@ const projects = [
         ]
     },
     {
+        title: "Full Stack Dynamic Image Compression",
+        image: "assets/images/projects/image_compression.png",
+        imageLargerContain: true,
+        description:
+            "This project was inspired by a dynamic programming assignment on seam carving in my algorithms class. After successfully implementing my own image compression algorithm on my local machine, I decided to build a full-stack application to integrate it into a practical tool. The backend, built with Flask, runs my custom algorithm, while the frontend, developed with Vue.js, provides a user-friendly interface for uploading images and adjusting compression settings. Since I typically use Node.js for backend development, experimenting with Flask for this project was both fun and educational.",
+        buttons: [
+            { text: "GitHub", url: "https://github.com/jek821/image_compression", type: "primary" },
+            { text: "Visit Site", url: "https://dynamic-image-compression.onrender.com", type: "secondary" }
+        ]
+    },
+    {
         title: "LogSync",
         image: "assets/images/projects/logsync.png",
         imagePosition: "50% 48%",
@@ -36,17 +59,6 @@ const projects = [
         buttons: [
             { text: "GitHub", url: "https://github.com/jek821/LogSync", type: "primary" },
             { text: "Visit Site", url: "", type: "secondary" }
-        ]
-    },
-    {
-        title: "Full Stack Dynamic Image Compression",
-        image: "assets/images/projects/image_compression.png",
-        imageLargerContain: true,
-        description:
-            "This project was inspired by a dynamic programming assignment on seam carving in my algorithms class. After successfully implementing my own image compression algorithm on my local machine, I decided to build a full-stack application to integrate it into a practical tool. The backend, built with Flask, runs my custom algorithm, while the frontend, developed with Vue.js, provides a user-friendly interface for uploading images and adjusting compression settings. Since I typically use Node.js for backend development, experimenting with Flask for this project was both fun and educational.",
-        buttons: [
-            { text: "GitHub", url: "https://github.com/jek821/image_compression", type: "primary" },
-            { text: "Visit Site", url: "https://dynamic-image-compression.onrender.com", type: "secondary" }
         ]
     }
 ];
