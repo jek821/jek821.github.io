@@ -171,10 +171,21 @@ h1 {
     transform-origin: center center;
 }
 
+/* Wide logos: light zoom without clipping edge text */
+.project-image--mild-crop.project-image--fit-cover img {
+    transform: scale(1.14);
+    transform-origin: center center;
+}
+
 /* Logo-style art: zoom past cover to trim black padding; not used on photo screenshots */
 .project-image--tight-crop.project-image--fit-cover img {
     transform: scale(1.32);
     transform-origin: center center;
+}
+
+/* Taller stripe for wide screenshots (e.g. seam-carving demo) */
+.project-image--tall {
+    height: 300px;
 }
 
 /* Full-bleed thumbnail: cover fills the stripe with no padded gutter */
@@ -192,14 +203,25 @@ h1 {
 
 .project-info h3 {
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 6px;
     color: var(--sub-title-color);
     font-size: 1.5em;
+    line-height: 1.2;
 }
 
-.project-info p {
+.project-tagline {
+    margin: 0 0 14px;
+    color: var(--title-color);
+    font-size: 0.95em;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1.35;
+}
+
+.project-description {
     margin: 0 0 16px;
     color: var(--text-color-secondary);
+    line-height: 1.55;
 }
 
 .project-buttons {
@@ -235,18 +257,6 @@ h1 {
 .btn-secondary:hover {
     background-color: var(--sub-title-color);
     color: var(--background-color);
-}
-
-.btn.btn-disabled {
-    opacity: 0.55;
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
-.btn-secondary.btn-disabled:hover {
-    background-color: var(--surface-color);
-    color: var(--sub-title-color);
-    transform: none;
 }
 
 .social-links {
@@ -300,6 +310,10 @@ h1 {
 
     .project-image--edge-to-edge {
         padding: 0;
+    }
+
+    .project-image--tall {
+        min-height: 320px;
     }
 }
 
