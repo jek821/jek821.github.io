@@ -209,8 +209,9 @@ h1 {
     line-height: 1.2;
 }
 
-.project-tagline {
+.project-info p.project-tagline {
     margin: 0 0 14px;
+    color: #81a1c1;
     color: var(--title-color);
     font-size: 0.95em;
     font-weight: 600;
@@ -218,7 +219,7 @@ h1 {
     line-height: 1.35;
 }
 
-.project-description {
+.project-info p.project-description {
     margin: 0 0 16px;
     color: var(--text-color-secondary);
     line-height: 1.55;
