@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim Inspector — App Walkthrough | Jacob Kriss</title>
+    <link rel="icon" href="../assets/favicon/icon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css?v=15">
+    <link rel="stylesheet" href="../assets/css/gallery.css?v=9">
+</head>
+<body class="gallery-page">
+    <nav class="gallery-nav" aria-label="Gallery navigation">
+        <a href="../index.html" class="gallery-nav-back">&larr; Back to portfolio</a>
+        <a href="https://github.com/jek821/Claim-Inspector" target="_blank" rel="noreferrer" class="btn">GitHub</a>
+    </nav>
+
+    <header class="gallery-header section">
+        <p class="gallery-eyebrow">App walkthrough</p>
+        <h1>Claim Inspector</h1>
+        <p class="gallery-tagline">Hybrid RAG + LLM pipeline for source-backed fact-checking</p>
+        <p class="gallery-intro">
+            Claim Inspector is not currently hosted online to keep API costs manageable.
+            Scroll through each step below — screenshots on the left, descriptions on the right.
+            Click any screenshot to view it full size.
+        </p>
+    </header>
+
+    <main class="gallery-main">
+        <section class="gallery-item">
+            <button type="button" class="gallery-figure gallery-figure--zoomable" aria-label="Enlarge login screenshot">
+                <img
+                    src="../assets/images/projects/claim-inspector/gallery/login.png"
+                    alt="Claim Inspector login screen with username and password fields"
+                    loading="lazy"
+                >
+                <span class="gallery-zoom-hint" aria-hidden="true">Click to enlarge</span>
+            </button>
+            <div class="gallery-caption">
+                <span class="gallery-step">01</span>
+                <h2>Login</h2>
+                <p>
+                    A simple sign-in screen protects the deployment. Authentication keeps the
+                    self-hosted instance private while the fact-checking pipeline runs on the server.
+                </p>
+            </div>
+        </section>
+
+        <section class="gallery-item">
+            <button type="button" class="gallery-figure gallery-figure--zoomable" aria-label="Enlarge dashboard screenshot">
+                <img
+                    src="../assets/images/projects/claim-inspector/gallery/main-screen.png"
+                    alt="Claim Inspector main dashboard showing API spend tracking and text input area"
+                    loading="lazy"
+                >
+                <span class="gallery-zoom-hint" aria-hidden="true">Click to enlarge</span>
+            </button>
+            <div class="gallery-caption">
+                <span class="gallery-step">02</span>
+                <h2>Dashboard &amp; input</h2>
+                <p>
+                    The home view tracks all-time and session spend across Claude Haiku, Voyage
+                    embeddings, and billable APIs, with daily usage bars for each service. Below
+                    that, paste text or drag and drop a file to start a new fact-check.
+                </p>
+            </div>
+        </section>
+
+        <section class="gallery-item">
+            <button type="button" class="gallery-figure gallery-figure--zoomable" aria-label="Enlarge history screenshot">
+                <img
+                    src="../assets/images/projects/claim-inspector/gallery/input-and-history.png"
+                    alt="Past fact-check history list and text input with cost estimate"
+                    loading="lazy"
+                >
+                <span class="gallery-zoom-hint" aria-hidden="true">Click to enlarge</span>
+            </button>
+            <div class="gallery-caption">
+                <span class="gallery-step">03</span>
+                <h2>History &amp; cost estimates</h2>
+                <p>
+                    Past runs are saved with timestamps, per-run cost, and flagged-claim counts.
+                    You can rename or delete entries. Before analyzing, the app estimates how
+                    many claims it will find and what the run will cost.
+                </p>
+            </div>
+        </section>
+
+        <section class="gallery-item">
+            <button type="button" class="gallery-figure gallery-figure--zoomable" aria-label="Enlarge analysis results screenshot">
+                <img
+                    src="../assets/images/projects/claim-inspector/gallery/analysis-results.png"
+                    alt="Fact-check results with color-coded claim highlights and risk summary"
+                    loading="lazy"
+                >
+                <span class="gallery-zoom-hint" aria-hidden="true">Click to enlarge</span>
+            </button>
+            <div class="gallery-caption">
+                <span class="gallery-step">04</span>
+                <h2>Analysis results</h2>
+                <p>
+                    After analysis, each sentence in the source text is highlighted by risk level:
+                    verified, medium risk, high risk, or unverifiable. A summary bar shows the
+                    breakdown, and optional batch mode trades speed for a 50% discount on Haiku calls.
+                </p>
+            </div>
+        </section>
+
+        <section class="gallery-item">
+            <button type="button" class="gallery-figure gallery-figure--zoomable" aria-label="Enlarge claim detail screenshot">
+                <img
+                    src="../assets/images/projects/claim-inspector/gallery/verified-claim-detail.png"
+                    alt="Expanded verified claim with explanation and cited sources"
+                    loading="lazy"
+                >
+                <span class="gallery-zoom-hint" aria-hidden="true">Click to enlarge</span>
+            </button>
+            <div class="gallery-caption">
+                <span class="gallery-step">05</span>
+                <h2>Claim breakdown &amp; sources</h2>
+                <p>
+                    Expanding a claim shows Haiku's reasoning against retrieved passages, with
+                    direct links to Wikipedia and OpenAlex sources. Each source includes a snippet
+                    from the indexed text so you can verify the evidence yourself.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="gallery-footer section">
+        <a href="../index.html" class="btn btn-secondary">&larr; Back to portfolio</a>
+        <a href="https://github.com/jek821/Claim-Inspector" target="_blank" rel="noreferrer" class="btn">View on GitHub</a>
+    </footer>
+    <script src="../assets/js/gallery.js?v=1"></script>
+</body>
+</html>
