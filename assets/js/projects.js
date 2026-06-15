@@ -6,7 +6,10 @@ const projects = [
         imageLargerContain: true,
         description:
             "Claim Inspector is an open-source fact-checking app that extracts factual claims from text or uploaded files, retrieves supporting sources from Wikipedia and scholarly databases, and scores each claim using a hybrid RAG pipeline with Claude Haiku. For each claim it gathers source text from metadata-driven routing, chunks and indexes the corpus, uses Voyage embeddings plus lexical overlap to retrieve the most relevant passages, and has Haiku assess validity against those passages before returning analysis with cited sources.",
-        buttons: [{ text: "GitHub", url: "https://github.com/jek821/Claim-Inspector", type: "primary" }]
+        buttons: [
+            { text: "GitHub", url: "https://github.com/jek821/Claim-Inspector", type: "primary" },
+            { text: "View Walkthrough", url: "projects/claim-inspector.html", type: "secondary" }
+        ]
     },
     {
         title: "Byte Chat",
