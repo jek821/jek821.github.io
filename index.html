@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jacob Kriss — Software Engineer</title>
+  <title>Jacob Kriss &mdash; Software Engineer</title>
   <meta name="description" content="Jacob Kriss is a software engineer focused on backend systems, distributed tools, and practical web applications. Based in Brooklyn, NY.">
   <link rel="icon" href="assets/favicon/icon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,108 +13,74 @@
 </head>
 <body>
 
-  <header class="site-header" id="site-header">
+  <header class="site-header">
     <div class="nav-inner">
-      <a href="#" class="nav-brand" aria-label="Jacob Kriss — home">JK</a>
+      <a href="index.html" class="nav-brand">JK</a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
       <nav class="nav-links" id="nav-links" aria-label="Main navigation">
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-        <a href="assets/docs/Jacob_Kriss_Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+        <a href="pages/projects.html">Projects</a>
+        <a href="pages/about.html">About</a>
         <a href="https://github.com/jek821" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="https://www.linkedin.com/in/jacob-kriss" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="assets/docs/Jacob_Kriss_Resume.pdf" target="_blank" rel="noreferrer" class="btn-primary">Resume</a>
       </nav>
     </div>
   </header>
 
   <main>
 
-    <section id="hero">
-      <div class="section-inner">
-        <h1 class="hero-name">Jacob Kriss</h1>
-        <p class="hero-role">Software Engineer</p>
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="hero-label">Software Engineer &mdash; Brooklyn, NY</p>
+        <h1 class="hero-name">Jacob<br>Kriss</h1>
         <p class="hero-desc">
-          Backend-leaning engineer comfortable working close to the machine — building distributed tools in Go, deploying Python services, and shipping practical web applications. Based in Brooklyn, NY.
+          Backend-focused engineer building distributed systems in Go, shipping Python services, and writing practical web tools.
         </p>
         <div class="hero-actions">
-          <a href="assets/docs/Jacob_Kriss_Resume.pdf" target="_blank" rel="noreferrer" class="btn-primary">Resume (PDF)</a>
-          <a href="https://github.com/jek821" target="_blank" rel="noreferrer" class="btn-outline">GitHub</a>
+          <a href="pages/projects.html" class="btn-primary">View Projects &rarr;</a>
+          <a href="assets/docs/Jacob_Kriss_Resume.pdf" target="_blank" rel="noreferrer" class="btn-ghost">Resume (PDF)</a>
         </div>
       </div>
     </section>
 
-    <section id="projects">
-      <div class="section-inner">
-        <h2 class="section-label">Projects</h2>
-        <div id="projects-list" class="projects-list">
-          <!-- Rendered by projects.js -->
+    <section class="directory">
+      <div class="directory-inner">
+        <div class="dir-grid">
+          <a href="pages/projects.html" class="dir-card">
+            <span class="dir-card-num">01</span>
+            <h2 class="dir-card-title">Projects</h2>
+            <p class="dir-card-desc">Open-source tools, distributed systems, and full-stack apps built in Go, Python, and TypeScript.</p>
+            <span class="dir-card-meta">6 projects &rarr;</span>
+          </a>
+          <a href="pages/about.html" class="dir-card">
+            <span class="dir-card-num">02</span>
+            <h2 class="dir-card-title">About</h2>
+            <p class="dir-card-desc">Background, stack, and what I work on. CS graduate, backend contractor, based in Brooklyn.</p>
+            <span class="dir-card-meta">Go &middot; Python &middot; TypeScript</span>
+          </a>
+          <a href="assets/docs/Jacob_Kriss_Resume.pdf" target="_blank" rel="noreferrer" class="dir-card">
+            <span class="dir-card-num">03</span>
+            <h2 class="dir-card-title">Resume</h2>
+            <p class="dir-card-desc">Education, experience, and a full project list. Skidmore College CS, current backend contractor.</p>
+            <span class="dir-card-meta">PDF &rarr;</span>
+          </a>
+          <a href="pages/about.html#contact" class="dir-card">
+            <span class="dir-card-num">04</span>
+            <h2 class="dir-card-title">Contact</h2>
+            <p class="dir-card-desc">Find me on GitHub or LinkedIn, or send a message directly.</p>
+            <span class="dir-card-meta">github.com/jek821</span>
+          </a>
         </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="section-inner">
-        <h2 class="section-label">About</h2>
-        <div class="about-content">
-          <p>
-            I'm a software engineer based in Brooklyn, NY. I graduated from Skidmore College with a degree in Computer Science and a minor in Business.
-          </p>
-          <p>
-            My work leans toward the backend: building APIs, writing systems-level code, and working through the infrastructure problems that keep software running reliably. I'm most comfortable in Go and Python, with experience in C, Rust, TypeScript, and SQL when the work calls for it.
-          </p>
-          <p>
-            I'm currently doing backend contract work for an early-stage startup — helping with API design, CI/CD guardrails, deployment reliability, and repository workflow.
-          </p>
-          <p>
-            I build projects to explore the parts of software I find most interesting: distributed systems, developer tooling, and the places where code meets real-world infrastructure.
-          </p>
-          <div class="skills" aria-label="Technical skills">
-            <span class="tag">Go</span>
-            <span class="tag">Python</span>
-            <span class="tag">C</span>
-            <span class="tag">Rust</span>
-            <span class="tag">TypeScript</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">SQLite</span>
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">Linux</span>
-            <span class="tag">Git</span>
-            <span class="tag">Docker</span>
-            <span class="tag">REST APIs</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="resume">
-      <div class="section-inner">
-        <h2 class="section-label">Resume</h2>
-        <p class="resume-desc">Full resume available as a PDF — includes education, experience, and projects.</p>
-        <a href="assets/docs/Jacob_Kriss_Resume.pdf" target="_blank" rel="noreferrer" class="btn-primary">View Resume (PDF)</a>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="section-inner">
-        <h2 class="section-label">Contact</h2>
-        <ul class="contact-links">
-          <li><a href="https://github.com/jek821" target="_blank" rel="noreferrer">GitHub — jek821</a></li>
-          <li><a href="https://www.linkedin.com/in/jacob-kriss" target="_blank" rel="noreferrer">LinkedIn — jacob-kriss</a></li>
-          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfrLhMbNPoMGEjmZiIZW2dg-Fc4PIe5LACIE4XrNHVma8XXbw/viewform?usp=sf_link" target="_blank" rel="noreferrer">Send a message</a></li>
-        </ul>
       </div>
     </section>
 
   </main>
 
   <footer class="site-footer">
-    <div class="section-inner footer-inner">
+    <div class="footer-inner">
       <span>Jacob Kriss &mdash; jacobkriss.com</span>
-      <nav class="footer-nav" aria-label="Footer links">
+      <nav aria-label="Footer links">
         <a href="https://github.com/jek821" target="_blank" rel="noreferrer">GitHub</a>
         <a href="https://www.linkedin.com/in/jacob-kriss" target="_blank" rel="noreferrer">LinkedIn</a>
         <a href="assets/docs/Jacob_Kriss_Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
@@ -122,7 +88,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/projects.js"></script>
   <script>
     (function () {
       var toggle = document.getElementById('nav-toggle');

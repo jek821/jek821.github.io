@@ -68,30 +68,33 @@ function renderProjects() {
   var container = document.getElementById("projects-list");
   if (!container) return;
 
+  var inSubdir = window.location.pathname.indexOf("/pages/") !== -1;
+  var base = inSubdir ? "../" : "";
+
   projects.forEach(function (project) {
     var article = document.createElement("article");
-    article.className = "project-entry";
+    article.className = "project-card";
 
-    var h3 = document.createElement("h3");
-    h3.className = "project-name";
-    h3.textContent = project.title;
-    article.appendChild(h3);
+    var name = document.createElement("h3");
+    name.className = "project-card-name";
+    name.textContent = project.title;
+    article.appendChild(name);
 
     if (project.tagline) {
       var tagline = document.createElement("p");
-      tagline.className = "project-tagline";
+      tagline.className = "project-card-tagline";
       tagline.textContent = project.tagline;
       article.appendChild(tagline);
     }
 
     var desc = document.createElement("p");
-    desc.className = "project-desc";
+    desc.className = "project-card-desc";
     desc.textContent = project.description;
     article.appendChild(desc);
 
     if (project.tags && project.tags.length) {
       var tagsDiv = document.createElement("div");
-      tagsDiv.className = "project-tags";
+      tagsDiv.className = "project-card-tags";
       tagsDiv.setAttribute("aria-label", "Tech stack");
       project.tags.forEach(function (tag) {
         var span = document.createElement("span");
@@ -104,12 +107,12 @@ function renderProjects() {
 
     if (project.buttons && project.buttons.length) {
       var linksDiv = document.createElement("div");
-      linksDiv.className = "project-links";
+      linksDiv.className = "project-card-links";
       project.buttons.forEach(function (btn) {
         var url = (btn.url || "").trim();
         if (!url) return;
         var a = document.createElement("a");
-        a.href = url;
+        a.href = url.startsWith("http") ? url : base + url;
         a.textContent = btn.text + " →";
         a.className = "project-link";
         if (url.startsWith("http")) {
