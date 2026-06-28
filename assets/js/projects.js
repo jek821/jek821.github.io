@@ -3,8 +3,10 @@ var projects = [
     title: "Byte Chat",
     tagline: "Self-hosted encrypted chat on a custom TCP protocol",
     description:
-      "Byte Chat is a distributed, open-source, end-to-end encrypted chat application written in Go, with a terminal UI built using the Bubble Tea framework. Transport uses a custom TCP protocol for messaging; HTTPS is used only for authentication. User authentication is built in so identities and sessions map to real users on your deployment. The architecture is geared toward security and self-hosting: run your own instance instead of trusting a third-party service with your conversations.",
+      "Byte Chat is a distributed, open-source, end-to-end encrypted chat application written in Go, with a terminal UI built using the Bubble Tea framework. Transport uses a custom TCP protocol for messaging; HTTPS is used only for authentication.",
+    image: "projects/bytechat.png",
     tags: ["go", "tcp", "tui", "e2e-encryption"],
+    categories: ["go"],
     buttons: [
       { text: "GitHub", url: "https://github.com/jek821/ByteChat" }
     ]
@@ -13,19 +15,23 @@ var projects = [
     title: "Claim Inspector",
     tagline: "Hybrid RAG + LLM pipeline for source-backed fact-checking",
     description:
-      "An open-source fact-checking app that extracts factual claims from text or uploaded files, retrieves supporting sources from Wikipedia and scholarly databases, and scores each claim using a hybrid RAG pipeline with Claude Haiku. For each claim it gathers source text from metadata-driven routing, chunks and indexes the corpus, uses Voyage embeddings plus lexical overlap to retrieve the most relevant passages, and has Haiku assess validity against those passages before returning analysis with cited sources.",
+      "An open-source fact-checking app that extracts factual claims from text or uploaded files, retrieves supporting sources from Wikipedia and scholarly databases, and scores each claim using a hybrid RAG pipeline with Claude Haiku.",
+    image: "projects/claim-inspector.png",
     tags: ["python", "rag", "llm", "fastapi"],
+    categories: ["python", "ai"],
     buttons: [
       { text: "GitHub", url: "https://github.com/jek821/Claim-Inspector" },
-      { text: "View Walkthrough", url: "projects/claim-inspector.html" }
+      { text: "Walkthrough", url: "projects/claim-inspector.html" }
     ]
   },
   {
     title: "LogSync",
     tagline: "Distributed, self-hostable log routing in Go",
     description:
-      "LogSync is a distributed, self-hostable logging library written in Go. It lets you use Unix socket files on the hosts where your software runs to securely route logs to a central logging server, so you can monitor deployments without scattering across machines. Planned additions include a web UI for log viewing and a Bubble Tea TUI for day-to-day use.",
+      "LogSync is a distributed, self-hostable logging library written in Go. It lets you use Unix socket files on the hosts where your software runs to securely route logs to a central logging server.",
+    image: "projects/logsync.png",
     tags: ["go", "unix-sockets", "distributed"],
+    categories: ["go"],
     buttons: [
       { text: "GitHub", url: "https://github.com/jek821/LogSync" }
     ]
@@ -34,8 +40,10 @@ var projects = [
     title: "Life Logger",
     tagline: "Daily habit tracking with a personal analytics API",
     description:
-      "Life Logger is a deployed web app for tracking daily activities and collecting data over time. User authentication scopes each account to the right user. The backend exposes an API to query habits, aggregate statistics, and spot trends across days and weeks — turning vague goals into measurable data on time and productivity.",
+      "Life Logger is a deployed web app for tracking daily activities and collecting data over time. The backend exposes an API to query habits, aggregate statistics, and spot trends across days and weeks.",
+    image: "projects/lifelogger.png",
     tags: ["python", "fastapi", "sqlite", "web"],
+    categories: ["python", "web"],
     buttons: [
       { text: "GitHub", url: "https://github.com/jek821/LifeLogger" },
       { text: "Visit Site", url: "https://lifelogger.org" }
@@ -45,8 +53,10 @@ var projects = [
     title: "Full Stack Dynamic Image Compression",
     tagline: "Seam-carving compression with a Flask + Vue full-stack UI",
     description:
-      "A full-stack application built around a custom seam-carving image compression algorithm, originally implemented from a dynamic programming assignment. The backend runs the algorithm via Flask; the Vue.js frontend lets users upload images and adjust compression settings in the browser.",
+      "A full-stack application built around a custom seam-carving image compression algorithm. The backend runs the algorithm via Flask; the Vue.js frontend lets users upload images and adjust compression settings.",
+    image: "projects/image_compression.png",
     tags: ["python", "flask", "vue", "algorithms"],
+    categories: ["python", "web"],
     buttons: [
       { text: "GitHub", url: "https://github.com/jek821/image_compression" },
       { text: "Visit Site", url: "https://dynamic-image-compression.onrender.com" }
@@ -56,8 +66,10 @@ var projects = [
     title: "Vector Play",
     tagline: "Lightweight TypeScript + Svelte SVG game framework",
     description:
-      "A web game framework built with TypeScript and Svelte around SVG and the DOM. Plug in your own vector assets to assemble scenes and ship dynamic gameplay without fighting a large runtime. Scalable vector art keeps memory and draw work light compared to sprite sheets; the library stays deliberately minimal.",
+      "A web game framework built with TypeScript and Svelte around SVG and the DOM. Plug in your own vector assets to assemble scenes and ship dynamic gameplay without fighting a large runtime.",
+    image: "projects/vector-play.png",
     tags: ["typescript", "svelte", "svg"],
+    categories: ["web"],
     buttons: [
       { text: "GitHub", url: "https://github.com/jek821/vector-play" }
     ]
@@ -68,64 +80,97 @@ function renderProjects() {
   var container = document.getElementById("projects-list");
   if (!container) return;
 
-  var inSubdir = window.location.pathname.indexOf("/pages/") !== -1;
-  var base = inSubdir ? "../" : "";
+  var inPages = window.location.pathname.indexOf("/pages/") !== -1;
+  var base = inPages ? "../assets/images/" : "assets/images/";
+  var linkBase = inPages ? "../" : "";
 
-  projects.forEach(function (project) {
-    var article = document.createElement("article");
-    article.className = "project-card";
+  projects.forEach(function (p) {
+    var card = document.createElement("article");
+    card.className = "project-card";
+    card.setAttribute("data-categories", (p.categories || []).join(" "));
+
+    var img = document.createElement("img");
+    img.src = base + p.image;
+    img.alt = p.title + " screenshot";
+    img.className = "project-card-img";
+    img.loading = "lazy";
+    card.appendChild(img);
+
+    var body = document.createElement("div");
+    body.className = "project-card-body";
 
     var name = document.createElement("h3");
     name.className = "project-card-name";
-    name.textContent = project.title;
-    article.appendChild(name);
+    name.textContent = p.title;
+    body.appendChild(name);
 
-    if (project.tagline) {
+    if (p.tagline) {
       var tagline = document.createElement("p");
       tagline.className = "project-card-tagline";
-      tagline.textContent = project.tagline;
-      article.appendChild(tagline);
+      tagline.textContent = p.tagline;
+      body.appendChild(tagline);
     }
 
-    var desc = document.createElement("p");
-    desc.className = "project-card-desc";
-    desc.textContent = project.description;
-    article.appendChild(desc);
-
-    if (project.tags && project.tags.length) {
+    if (p.tags && p.tags.length) {
       var tagsDiv = document.createElement("div");
       tagsDiv.className = "project-card-tags";
-      tagsDiv.setAttribute("aria-label", "Tech stack");
-      project.tags.forEach(function (tag) {
+      p.tags.forEach(function (t) {
         var span = document.createElement("span");
         span.className = "tag";
-        span.textContent = tag;
+        span.textContent = t;
         tagsDiv.appendChild(span);
       });
-      article.appendChild(tagsDiv);
+      body.appendChild(tagsDiv);
     }
 
-    if (project.buttons && project.buttons.length) {
-      var linksDiv = document.createElement("div");
-      linksDiv.className = "project-card-links";
-      project.buttons.forEach(function (btn) {
+    if (p.buttons && p.buttons.length) {
+      var links = document.createElement("div");
+      links.className = "project-card-links";
+      p.buttons.forEach(function (btn) {
         var url = (btn.url || "").trim();
         if (!url) return;
         var a = document.createElement("a");
-        a.href = url.startsWith("http") ? url : base + url;
+        a.href = url.startsWith("http") ? url : linkBase + url;
         a.textContent = btn.text + " →";
         a.className = "project-link";
         if (url.startsWith("http")) {
           a.target = "_blank";
           a.rel = "noreferrer";
         }
-        linksDiv.appendChild(a);
+        links.appendChild(a);
       });
-      article.appendChild(linksDiv);
+      body.appendChild(links);
     }
 
-    container.appendChild(article);
+    card.appendChild(body);
+    container.appendChild(card);
   });
 }
 
-document.addEventListener("DOMContentLoaded", renderProjects);
+function initFilter() {
+  var buttons = document.querySelectorAll(".filter-btn");
+  var cards = document.querySelectorAll(".project-card");
+  if (!buttons.length) return;
+
+  buttons.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      buttons.forEach(function (b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+
+      var filter = btn.getAttribute("data-filter");
+      cards.forEach(function (card) {
+        if (filter === "all") {
+          card.classList.remove("hidden");
+        } else {
+          var cats = card.getAttribute("data-categories") || "";
+          card.classList.toggle("hidden", cats.indexOf(filter) === -1);
+        }
+      });
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  renderProjects();
+  initFilter();
+});

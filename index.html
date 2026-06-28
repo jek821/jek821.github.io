@@ -13,100 +13,32 @@
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-brand">JK</a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
-        <a href="pages/projects.html">Projects</a>
-        <a href="pages/about.html">About</a>
-        <a href="https://github.com/jek821" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="assets/docs/Jacob_Kriss_Resume.pdf" target="_blank" rel="noreferrer" class="btn-primary">Resume</a>
-      </nav>
+  <div class="site-bg" style="background-image: url('assets/images/hero/header.png');"></div>
+
+  <main class="hero">
+    <h1 class="hero-name">Jacob Kriss</h1>
+    <p class="hero-tagline">a software engineer based in Brooklyn, NY</p>
+    <nav class="hero-nav" aria-label="Main navigation">
+      <a href="index.html" class="active">Home</a>
+      <a href="pages/about.html">About</a>
+      <a href="assets/docs/Jacob_Kriss_Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+      <a href="pages/projects.html">Projects</a>
+      <a href="pages/contact.html">Contact</a>
+    </nav>
+    <div class="hero-social">
+      <a href="https://github.com/jek821" target="_blank" rel="noreferrer" aria-label="GitHub">
+        <img src="assets/images/icons/github_icon.png" alt="GitHub">
+      </a>
+      <a href="https://www.linkedin.com/in/jacob-kriss" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+        <img src="assets/images/icons/linkedin_icon.png" alt="LinkedIn">
+      </a>
+      <a href="assets/docs/Jacob_Kriss_Resume.pdf" target="_blank" rel="noreferrer" aria-label="Download Resume">
+        <svg class="icon-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 16l-4-4h2.5V8h3v4H16l-4 4zm-6 2h12v2H6v-2z"/>
+        </svg>
+      </a>
     </div>
-  </header>
-
-  <main>
-
-    <section class="hero">
-      <div class="hero-inner">
-        <p class="hero-label">Software Engineer &mdash; Brooklyn, NY</p>
-        <h1 class="hero-name">Jacob<br>Kriss</h1>
-        <p class="hero-desc">
-          Backend-focused engineer building distributed systems in Go, shipping Python services, and writing practical web tools.
-        </p>
-        <div class="hero-actions">
-          <a href="pages/projects.html" class="btn-primary">View Projects &rarr;</a>
-          <a href="assets/docs/Jacob_Kriss_Resume.pdf" target="_blank" rel="noreferrer" class="btn-ghost">Resume (PDF)</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="directory">
-      <div class="directory-inner">
-        <div class="dir-grid">
-          <a href="pages/projects.html" class="dir-card">
-            <span class="dir-card-num">01</span>
-            <h2 class="dir-card-title">Projects</h2>
-            <p class="dir-card-desc">Open-source tools, distributed systems, and full-stack apps built in Go, Python, and TypeScript.</p>
-            <span class="dir-card-meta">6 projects &rarr;</span>
-          </a>
-          <a href="pages/about.html" class="dir-card">
-            <span class="dir-card-num">02</span>
-            <h2 class="dir-card-title">About</h2>
-            <p class="dir-card-desc">Background, stack, and what I work on. CS graduate, backend contractor, based in Brooklyn.</p>
-            <span class="dir-card-meta">Go &middot; Python &middot; TypeScript</span>
-          </a>
-          <a href="assets/docs/Jacob_Kriss_Resume.pdf" target="_blank" rel="noreferrer" class="dir-card">
-            <span class="dir-card-num">03</span>
-            <h2 class="dir-card-title">Resume</h2>
-            <p class="dir-card-desc">Education, experience, and a full project list. Skidmore College CS, current backend contractor.</p>
-            <span class="dir-card-meta">PDF &rarr;</span>
-          </a>
-          <a href="pages/about.html#contact" class="dir-card">
-            <span class="dir-card-num">04</span>
-            <h2 class="dir-card-title">Contact</h2>
-            <p class="dir-card-desc">Find me on GitHub or LinkedIn, or send a message directly.</p>
-            <span class="dir-card-meta">github.com/jek821</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
   </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <span>Jacob Kriss &mdash; jacobkriss.com</span>
-      <nav aria-label="Footer links">
-        <a href="https://github.com/jek821" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="https://www.linkedin.com/in/jacob-kriss" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href="assets/docs/Jacob_Kriss_Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
-      </nav>
-    </div>
-  </footer>
-
-  <script>
-    (function () {
-      var toggle = document.getElementById('nav-toggle');
-      var links = document.getElementById('nav-links');
-      toggle.addEventListener('click', function () {
-        var expanded = this.getAttribute('aria-expanded') === 'true';
-        this.setAttribute('aria-expanded', String(!expanded));
-        this.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
-        links.classList.toggle('is-open');
-      });
-      links.querySelectorAll('a').forEach(function (a) {
-        a.addEventListener('click', function () {
-          links.classList.remove('is-open');
-          toggle.setAttribute('aria-expanded', 'false');
-          toggle.setAttribute('aria-label', 'Open navigation');
-        });
-      });
-    })();
-  </script>
 
 </body>
 </html>
