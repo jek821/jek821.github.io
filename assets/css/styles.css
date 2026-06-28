@@ -400,15 +400,24 @@ body {
 }
 
 .project-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 14px;
+  border: 1px solid rgba(74, 222, 128, 0.45);
+  border-radius: 20px;
+  background: transparent;
   font-family: var(--font-heading);
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
   color: var(--accent);
   text-decoration: none;
-  transition: opacity 0.15s;
+  transition: background 0.15s, border-color 0.15s;
 }
 
-.project-link:hover { opacity: 0.7; }
+.project-link:hover {
+  background: rgba(74, 222, 128, 0.1);
+  border-color: var(--accent);
+}
 
 /* ── About page ── */
 .about-grid {
