@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About &mdash; Jacob Kriss</title>
+  <meta name="description" content="Jacob Kriss is a software engineer focused on backend systems, distributed tools, and practical web applications. Based in Brooklyn, NY.">
   <link rel="icon" href="../assets/favicon/icon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,80 +13,130 @@
 </head>
 <body>
 
+  <div class="site-bg" style="background-image: url('../assets/images/hero/header.png');"></div>
+
   <header class="site-header">
-    <div class="nav-inner">
-      <a href="../index.html" class="nav-brand">JK</a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links">
-        <span></span><span></span><span></span>
-      </button>
-      <nav class="nav-links" id="nav-links" aria-label="Main navigation">
-        <a href="../index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="https://github.com/jek821" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="../assets/docs/Jacob_Kriss_Resume.pdf" target="_blank" rel="noreferrer" class="btn-primary">Resume</a>
-      </nav>
-    </div>
+    <a href="../index.html" class="nav-brand">JK</a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav-links" id="nav-links" aria-label="Main navigation">
+      <a href="../index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="../assets/docs/Jacob_Kriss_Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-  <main>
-    <div class="page-header">
-      <div class="page-header-inner">
-        <p class="page-eyebrow">02 / About</p>
-        <h1 class="page-title">About</h1>
+  <main class="page-wrap">
+    <div class="section-header">
+      <div class="section-label-row">
+        <span class="section-label">02 / about</span>
+        <span class="section-rule"></span>
+      </div>
+      <h1 class="section-title">About</h1>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-bio">
+        <p>
+          I'm a software engineer based in Brooklyn, NY. I graduated from Skidmore College
+          with a degree in Computer Science and a minor in Business.
+        </p>
+        <p>
+          My work leans toward the backend: building APIs, writing systems-level code, and
+          working through the infrastructure problems that keep software running reliably.
+          I'm most comfortable in Go and Python, with experience in C, Rust, TypeScript,
+          and SQL when the work calls for it.
+        </p>
+        <p>
+          I'm currently doing backend contract work for an early-stage startup &mdash;
+          helping with API design, CI/CD guardrails, deployment reliability, and
+          repository workflow.
+        </p>
+        <p>
+          I build projects to explore the parts of software I find most interesting:
+          distributed systems, developer tooling, and the places where code meets
+          real-world infrastructure.
+        </p>
+      </div>
+
+      <div>
+        <div class="contact-row">
+          <a href="https://github.com/jek821" target="_blank" rel="noreferrer" class="contact-item">
+            <span class="contact-item-arrow">→</span>
+            <span class="contact-label">GitHub</span>
+            <span>jek821</span>
+          </a>
+          <a href="https://www.linkedin.com/in/jacob-kriss" target="_blank" rel="noreferrer" class="contact-item">
+            <span class="contact-item-arrow">→</span>
+            <span class="contact-label">LinkedIn</span>
+            <span>jacob-kriss</span>
+          </a>
+          <a href="../assets/docs/Jacob_Kriss_Resume.pdf" target="_blank" rel="noreferrer" class="contact-item">
+            <span class="contact-item-arrow">→</span>
+            <span class="contact-label">Resume</span>
+            <span>Download PDF</span>
+          </a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfrLhMbNPoMGEjmZiIZW2dg-Fc4PIe5LACIE4XrNHVma8XXbw/viewform?usp=sf_link" target="_blank" rel="noreferrer" class="contact-item">
+            <span class="contact-item-arrow">→</span>
+            <span class="contact-label">Contact</span>
+            <span>Send a message</span>
+          </a>
+        </div>
       </div>
     </div>
-    <div class="about-wrap">
 
-      <div class="about-prose">
-        <p>
-          I'm a software engineer based in Brooklyn, NY. I graduated from Skidmore College with a degree in Computer Science and a minor in Business.
-        </p>
-        <p>
-          My work leans toward the backend: building APIs, writing systems-level code, and working through the infrastructure problems that keep software running reliably. I'm most comfortable in Go and Python, with experience in C, Rust, TypeScript, and SQL when the work calls for it.
-        </p>
-        <p>
-          I'm currently doing backend contract work for an early-stage startup &mdash; helping with API design, CI/CD guardrails, deployment reliability, and repository workflow.
-        </p>
-        <p>
-          I build projects to explore the parts of software I find most interesting: distributed systems, developer tooling, and the places where code meets real-world infrastructure.
-        </p>
+    <div class="skills-section">
+      <div class="section-label-row" style="margin-bottom: 28px;">
+        <span class="section-label">Stack</span>
+        <span class="section-rule"></span>
       </div>
-
-      <h2 class="about-section-title">Stack</h2>
-      <div class="skills-grid">
-        <span class="tag">Go</span>
-        <span class="tag">Python</span>
-        <span class="tag">C</span>
-        <span class="tag">Rust</span>
-        <span class="tag">TypeScript</span>
-        <span class="tag">JavaScript</span>
-        <span class="tag">SQLite</span>
-        <span class="tag">PostgreSQL</span>
-        <span class="tag">Linux</span>
-        <span class="tag">Git</span>
-        <span class="tag">Docker</span>
-        <span class="tag">REST APIs</span>
+      <div class="skills-list">
+        <div class="skill-row">
+          <div class="skill-name"><span>Go</span><span>90%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 90%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name"><span>Python</span><span>88%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 88%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name"><span>JavaScript</span><span>78%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 78%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name"><span>TypeScript</span><span>72%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 72%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name"><span>C</span><span>70%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 70%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name"><span>Rust</span><span>58%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 58%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name"><span>SQL</span><span>72%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 72%"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-name"><span>Linux / Docker</span><span>80%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" style="width: 80%"></div></div>
+        </div>
       </div>
-
-      <h2 class="about-section-title" id="contact">Contact</h2>
-      <ul class="contact-list">
-        <li><a href="https://github.com/jek821" target="_blank" rel="noreferrer">GitHub &mdash; jek821</a></li>
-        <li><a href="https://www.linkedin.com/in/jacob-kriss" target="_blank" rel="noreferrer">LinkedIn &mdash; jacob-kriss</a></li>
-        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfrLhMbNPoMGEjmZiIZW2dg-Fc4PIe5LACIE4XrNHVma8XXbw/viewform?usp=sf_link" target="_blank" rel="noreferrer">Send a message</a></li>
-      </ul>
-
     </div>
   </main>
 
   <footer class="site-footer">
-    <div class="footer-inner">
-      <span>Jacob Kriss &mdash; jacobkriss.com</span>
-      <nav aria-label="Footer links">
-        <a href="../index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="https://github.com/jek821" target="_blank" rel="noreferrer">GitHub</a>
-      </nav>
-    </div>
+    <span>Jacob Kriss &mdash; jacobkriss.com</span>
+    <nav aria-label="Footer links">
+      <a href="../index.html">Home</a>
+      <a href="https://github.com/jek821" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="../assets/docs/Jacob_Kriss_Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+    </nav>
   </footer>
 
   <script>
