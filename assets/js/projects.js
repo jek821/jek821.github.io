@@ -30,6 +30,7 @@ var projects = [
     description:
       "LogSync is a distributed, self-hostable logging library written in Go. It lets you use Unix socket files on the hosts where your software runs to securely route logs to a central logging server.",
     image: "projects/logsync.png",
+    imagePosition: "center calc(50% + 10px)",
     tags: ["go", "unix-sockets", "distributed"],
     categories: ["go"],
     buttons: [
@@ -94,6 +95,7 @@ function renderProjects() {
     img.alt = p.title + " screenshot";
     img.className = "project-card-img";
     img.loading = "lazy";
+    if (p.imagePosition) img.style.objectPosition = p.imagePosition;
     card.appendChild(img);
 
     var body = document.createElement("div");
