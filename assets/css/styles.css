@@ -136,8 +136,8 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 0 80px 80px;
+  justify-content: center;
+  padding: 0 80px;
   background: linear-gradient(to right, rgba(0,0,0,0.72) 55%, rgba(0,0,0,0.1) 100%);
 }
 
@@ -585,7 +585,7 @@ body {
   .nav-links a { padding: 12px 24px; font-size: 1rem; }
   .nav-links a::after { display: none; }
 
-  .hero { padding: 0 24px 60px; }
+  .hero { padding: 0 24px; }
   .hero-name { font-size: 2.8rem; }
   .hero-nav { gap: 1.5rem; }
 
