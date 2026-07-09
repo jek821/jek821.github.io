@@ -4,7 +4,7 @@ var projects = [
     tagline: "Self-hosted encrypted chat on a custom TCP protocol",
     description:
       "Byte Chat is a distributed, open-source, end-to-end encrypted chat application written in Go, with a terminal UI built using the Bubble Tea framework. Transport uses a custom TCP protocol for messaging; HTTPS is used only for authentication.",
-    image: "projects/bytechat.png",
+    image: "projects/bytechat.webp",
     tags: ["go", "tcp", "tui", "e2e-encryption"],
     categories: ["go"],
     buttons: [
@@ -16,7 +16,7 @@ var projects = [
     tagline: "Hybrid RAG + LLM pipeline for source-backed fact-checking",
     description:
       "An open-source fact-checking app that extracts factual claims from text or uploaded files, retrieves supporting sources from Wikipedia and scholarly databases, and scores each claim using a hybrid RAG pipeline with Claude Haiku.",
-    image: "projects/claim-inspector.png",
+    image: "projects/claim-inspector.webp",
     tags: ["python", "rag", "llm", "fastapi"],
     categories: ["python", "ai"],
     buttons: [
@@ -29,7 +29,7 @@ var projects = [
     tagline: "Distributed, self-hostable log routing in Go",
     description:
       "LogSync is a distributed, self-hostable logging library written in Go. It lets you use Unix socket files on the hosts where your software runs to securely route logs to a central logging server.",
-    image: "projects/logsync.png",
+    image: "projects/logsync.webp",
     imagePosition: "center calc(50% + 10px)",
     tags: ["go", "unix-sockets", "distributed"],
     categories: ["go"],
@@ -42,7 +42,7 @@ var projects = [
     tagline: "Daily habit tracking with a personal analytics API",
     description:
       "Life Logger is a deployed web app for tracking daily activities and collecting data over time. The backend exposes an API to query habits, aggregate statistics, and spot trends across days and weeks.",
-    image: "projects/lifelogger.png",
+    image: "projects/lifelogger.webp",
     tags: ["python", "fastapi", "sqlite", "web"],
     categories: ["python", "web"],
     buttons: [
@@ -55,7 +55,7 @@ var projects = [
     tagline: "Seam-carving compression with a Flask + Vue full-stack UI",
     description:
       "A full-stack application built around a custom seam-carving image compression algorithm. The backend runs the algorithm via Flask; the Vue.js frontend lets users upload images and adjust compression settings.",
-    image: "projects/image_compression.png",
+    image: "projects/image_compression.webp",
     tags: ["python", "flask", "vue", "algorithms"],
     categories: ["python", "web"],
     buttons: [
@@ -68,7 +68,7 @@ var projects = [
     tagline: "Lightweight TypeScript + Svelte SVG game framework",
     description:
       "A web game framework built with TypeScript and Svelte around SVG and the DOM. Plug in your own vector assets to assemble scenes and ship dynamic gameplay without fighting a large runtime.",
-    image: "projects/vector-play.png",
+    image: "projects/vector-play.webp",
     tags: ["typescript", "svelte", "svg"],
     categories: ["web"],
     buttons: [
@@ -85,7 +85,7 @@ function renderProjects() {
   var base = inPages ? "../assets/images/" : "assets/images/";
   var linkBase = inPages ? "../" : "";
 
-  projects.forEach(function (p) {
+  projects.forEach(function (p, index) {
     var card = document.createElement("article");
     card.className = "project-card";
     card.setAttribute("data-categories", (p.categories || []).join(" "));
@@ -94,14 +94,15 @@ function renderProjects() {
     img.src = base + p.image;
     img.alt = p.title + " screenshot";
     img.className = "project-card-img";
-    img.loading = "lazy";
+    // First row (up to 3 cards) is above the fold — load eagerly for LCP.
+    img.loading = index < 3 ? "eager" : "lazy";
     if (p.imagePosition) img.style.objectPosition = p.imagePosition;
     card.appendChild(img);
 
     var body = document.createElement("div");
     body.className = "project-card-body";
 
-    var name = document.createElement("h3");
+    var name = document.createElement("h2");
     name.className = "project-card-name";
     name.textContent = p.title;
     body.appendChild(name);

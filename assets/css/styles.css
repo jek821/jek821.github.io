@@ -5,6 +5,7 @@
   --text-muted: rgba(255, 255, 255, 0.55);
   --border: rgba(255, 255, 255, 0.1);
   --surface: rgba(0, 0, 0, 0.82);
+  --bg: #060A10;
   --nav-h: 64px;
 
   --font-heading: 'Space Grotesk', system-ui, sans-serif;
@@ -15,6 +16,17 @@
 /* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 
 body {
   margin: 0;
@@ -31,9 +43,15 @@ body {
   position: fixed;
   inset: 0;
   z-index: 0;
+  background-color: #060A10;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+/* Galaxy backdrop only on the home page; inner pages stay solid dark */
+.home .site-bg {
+  background-image: url('../images/hero/andromeda.webp');
 }
 
 /* ── All content sits above the background ── */
@@ -110,8 +128,8 @@ body {
   flex-direction: column;
   justify-content: center;
   gap: 5px;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   padding: 0;
   border: none;
   background: transparent;
@@ -134,11 +152,12 @@ body {
 /* ── Home hero ── */
 .hero {
   min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 0 80px;
-  background: linear-gradient(to right, rgba(0,0,0,0.72) 55%, rgba(0,0,0,0.1) 100%);
+  background: linear-gradient(to right, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.05) 100%);
 }
 
 .hero-name {
@@ -201,8 +220,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.12);
   transition: background 0.2s;
@@ -211,13 +230,7 @@ body {
 
 .hero-social a:hover { background: rgba(255, 255, 255, 0.22); }
 
-.hero-social img {
-  width: 18px;
-  height: 18px;
-  filter: brightness(0) invert(1);
-}
-
-/* ── Download icon (SVG inline) ── */
+/* ── Social icons (inline SVG) ── */
 .hero-social .icon-svg {
   width: 18px;
   height: 18px;
@@ -468,41 +481,6 @@ body {
 
 .skills-section { margin-top: 64px; }
 
-.skills-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px 48px;
-}
-
-.skill-row {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.skill-name {
-  display: flex;
-  justify-content: space-between;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-}
-
-.skill-bar-track {
-  height: 3px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.skill-bar-fill {
-  height: 100%;
-  background: var(--accent);
-  border-radius: 2px;
-}
-
 /* ── Contact page ── */
 .contact-list {
   list-style: none;
@@ -563,11 +541,33 @@ body {
   border-radius: 2px;
 }
 
+/* ── Skip to content (keyboard / screen-reader users) ── */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 1000;
+}
+.skip-link:focus {
+  left: 16px;
+  top: 16px;
+  padding: 8px 14px;
+  background: var(--accent);
+  color: #060A10;
+  border-radius: 4px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  text-decoration: none;
+}
+
 /* ── Mobile ── */
 @media (max-width: 900px) {
   .project-grid { grid-template-columns: repeat(2, 1fr); }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .skills-section { margin-top: 40px; }
+  .hero { padding: 0 48px; }
+  .page-wrap { padding-left: 40px; padding-right: 40px; }
+  .site-footer { padding-left: 40px; padding-right: 40px; }
 }
 
 @media (max-width: 640px) {
@@ -602,6 +602,5 @@ body {
   .section-header { padding: 48px 0 28px; }
   .project-grid { grid-template-columns: 1fr; }
 
-  .skills-list { grid-template-columns: 1fr; }
   .site-footer { padding: 20px; flex-direction: column; align-items: flex-start; gap: 12px; }
 }

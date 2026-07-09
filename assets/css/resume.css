@@ -193,19 +193,6 @@
   opacity: 0.6;
 }
 
-/* Activities */
-.resume-activities {
-  margin: 0;
-  padding-left: 18px;
-  list-style: disc;
-}
-
-.resume-activities li {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  line-height: 1.65;
-}
-
 /* Responsive */
 @media (max-width: 640px) {
   .resume-contact { gap: 4px 12px; }
