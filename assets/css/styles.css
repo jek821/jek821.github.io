@@ -424,6 +424,37 @@ body {
   line-height: 1.4;
 }
 
+.project-card-details summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.15s;
+}
+
+.project-card-details summary::-webkit-details-marker { display: none; }
+.project-card-details summary::before {
+  content: '+';
+  color: var(--accent);
+  font-family: var(--font-mono);
+}
+.project-card-details[open] summary::before { content: '\2212'; }
+.project-card-details[open] summary { color: var(--text); }
+.project-card-details summary:hover { color: var(--text); }
+
+.project-card-details p {
+  margin: 6px 0 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
 .project-card-tags {
   display: flex;
   flex-wrap: wrap;

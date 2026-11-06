@@ -114,6 +114,18 @@ function renderProjects() {
       body.appendChild(tagline);
     }
 
+    if (p.description) {
+      var details = document.createElement("details");
+      details.className = "project-card-details";
+      var summary = document.createElement("summary");
+      summary.textContent = "More details";
+      var desc = document.createElement("p");
+      desc.textContent = p.description;
+      details.appendChild(summary);
+      details.appendChild(desc);
+      body.appendChild(details);
+    }
+
     if (p.tags && p.tags.length) {
       var tagsDiv = document.createElement("div");
       tagsDiv.className = "project-card-tags";
