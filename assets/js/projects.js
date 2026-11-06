@@ -17,8 +17,8 @@ var projects = [
     description:
       "An open-source fact-checking app that extracts factual claims from text or uploaded files, retrieves supporting sources from Wikipedia and scholarly databases, and scores each claim using a hybrid RAG pipeline with Claude Haiku.",
     image: "projects/claim-inspector.webp",
-    tags: ["python", "rag", "llm", "fastapi"],
-    categories: ["python", "ai"],
+    tags: ["go", "react", "rag", "llm"],
+    categories: ["go", "web", "ai"],
     buttons: [
       { text: "GitHub", url: "https://github.com/jek821/Claim-Inspector" },
       { text: "Walkthrough", url: "projects/claim-inspector.html" }
@@ -43,8 +43,8 @@ var projects = [
     description:
       "Life Logger is a deployed web app for tracking daily activities and collecting data over time. The backend exposes an API to query habits, aggregate statistics, and spot trends across days and weeks.",
     image: "projects/lifelogger.webp",
-    tags: ["python", "fastapi", "sqlite", "web"],
-    categories: ["python", "web"],
+    tags: ["javascript", "node.js", "sqlite", "nginx"],
+    categories: ["web"],
     buttons: [
       { text: "GitHub", url: "https://github.com/jek821/LifeLogger" },
       { text: "Visit Site", url: "https://lifelogger.org" }
