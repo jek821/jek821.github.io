@@ -177,6 +177,46 @@ body {
   font-style: italic;
 }
 
+.hero-summary {
+  max-width: 36rem;
+  margin: -16px 0 28px;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.8);
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 22px;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s, opacity 0.15s;
+}
+
+.hero-btn:hover { border-color: #FFFFFF; background: rgba(255,255,255,0.08); }
+
+.hero-btn--primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #060A10;
+}
+
+.hero-btn--primary:hover { background: var(--accent); border-color: var(--accent); opacity: 0.88; }
+
 .hero-nav {
   display: flex;
   align-items: center;
